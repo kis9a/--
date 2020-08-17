@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "yarn run inline & yarn run minifier",
+    "inline": "yarn html-inline -i src/index.html -o index.html",
+    "minifier": "yarn html-minifier index.html -o index.html --collapse-inline-tag-whitespace --collapse-whitespace --minify-css"
+  },
   "devDependencies": {
-    "gulp": "^4.0.2",
-    "gulp-clean-css": "^4.3.0",
-    "gulp-htmlmin": "^5.0.1"
+    "esbuild": "^0.6.25",
+    "html-inline": "^1.2.0",
+    "html-minifier": "^4.0.0"
   }
 }
