@@ -1,16 +1,17 @@
 {
-  "name": "d",
+  "name": "nav",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
   "scripts": {
     "build": "yarn run inline & yarn run minifier",
     "inline": "yarn html-inline -i src/index.html -o dist/index.html",
-    "minifier": "yarn html-minifier dist/index.html -o dist/index.html --collapse-inline-tag-whitespace --collapse-whitespace --minify-css"
+    "minifier": "yarn html-minifier dist/index.html -o dist/index.html --collapse-inline-tag-whitespace --collapse-whitespace --minify-css",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "devDependencies": {
     "esbuild": "^0.6.25",
     "html-inline": "^1.2.0",
-    "html-minifier": "^4.0.0"
+    "html-minifier": "^4.0.0",
+    "push-dir": "^0.4.1"
   }
 }
