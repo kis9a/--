@@ -1,146 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../static/kis9a.png"/>
-    <title>kis9a</title>
+    <link rel="icon" type="image/png" href="../static/kis9a-nav.png"/>
+    <title>kis9a - navigation</title>
     <meta property="og:site_name" content="kis9a" /> 
-    <meta property="og:title" content="kis9a - nav">
+    <meta property="og:title" content="kis9a - navigation page">
     <meta property="og:type" content="`website`">
-    <meta property="og:url" content="https://kis9a.github.io/nav/">
-    <meta property="og:image" content="https://raw.githubusercontent.com/kis9a/nav/master/static/kis9a.png">
+    <meta property="og:url" content="https://kis9a.github.io/navigation/">
+    <meta property="og:image" href="https://raw.githubusercontent.com/kis9a/nav/master/static/kis9a.png">
     <style type="text/css">
       body {
+        padding: 0;
+        margin: 0;
         font-size: 16px;
         font-family: Myrica M, serif;
-        line-height: 1.6;
-        color: #36393b;
-        background: rgba(235, 235, 235, 0.8);
-        padding: 20%;
-        margin: 0;
-        display: grid;
-        justify-items: center;
-        grid-template-columns: 3fr 7fr;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-      }
-      img {
-        pointer-events: none;
+        display: flex;
+        align-items: center;
+        position: fixed;
+        top: 2em;
+        right: 2em;
+        left: 2em;
+        bottom: 2em;
       }
       a {
         display: block;
         text-decoration: none;
       }
-      nav {
-        width: 70%;
-        text-align: center;
-        display: grid;
-        grid-auto-rows: auto auto auto;
+      #l {
+        display: flex;
+        flex-direction: column;
         justify-items: center;
         align-items: center;
-        grid-gap: 1em;
-        animation: fadeIn ease 2s;
-        -webkit-animation: fadeIn ease 2s;
-        -moz-animation: fadeIn ease 2s;
-        -o-animation: fadeIn ease 2s;
-        -ms-animation: fadeIn ease 2s;
-      }
-      .icon {
         width: 100%;
-        border-radius: 50%;
-        max-height: 10em;
-        max-width: 10em;
-        -webkit-border-radius:50%;
-        background-size: contain;
-        opacity: 0.8;
-        box-shadow: 0px 0px 3px black;
       }
-      .name {
+      #h {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 1.5em 1.2em;
+        width: 90%;
+        max-width: 30em;
+      }
+      #n {
         display: flex;
         font-size: 1.3em;
         letter-spacing: 5px;
-        height: 1.2em;
+        line-height: 1.3em;
         align-items: center;
-        opacity: 0.8;
-        margin-left: 16px;
       }
-      .blink {
-        margin-left: 8px;
-        align-items: center;
-        -webkit-animation: fadeIn 0.7s ease-in-out infinite alternate;
-        -moz-animation: fadeIn 0.7s ease-in-out infinite alternate;
-        animation: fadeIn 0.7s ease-in-out infinite alternate;
-      }
-      .links {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        justify-items: center;
-        grid-gap: 1em;
-        width: 100%;
-      }
-      .link {
+      #o {
+        font-size: 1.4em;
+        opacity: 0.7;
+        line-height: 1.4em;
         display: flex;
         align-items: center;
+        padding: 0 0.5em;
+        animation: i 3s ease infinite alternate;
+      }
+      #x {
+        z-index: 1000;
+        font-size: 1.4em;
         opacity: 0.7;
+        line-height: 1.4em;
+        display: flex;
+        align-items: center;
+        padding: 0 0.5em;
       }
-      .link-img {
-        width: 1.3em;
-        height: 1.3em;
+      #c {
+        max-width: 30em;
+        margin: 1.5em 1.5em;
+        width: 90%;
+        display: flex;
       }
-      @media (max-width: 820px) {
-        body {
-          grid-template-columns: auto;
-        }
-        .name {
-          font-size: 1.1em;
-        }
-        .link-img {
-          width: 1.1em;
-          height: 1.1em;
-        }
+      #i {
+        display: block;
+        width: 100%;
+        border-radius: 50%;
+        max-height: 6em;
+        max-width: 6em;
+        -webkit-border-radius:50%;
+        background-size: contain;
+        box-shadow: 0px 0px 3px black;
+        pointer-events: none;
+        opacity: 0.9;
       }
-      @keyframes fadeIn {
-      0% {opacity:0;}
-      100% {opacity:1;}
+      #ls {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0em;
+        right: 0em;
+        left: 0em;
+        bottom: 0em;
+        z-index: 100;
+        background: white;
+        animation: i 0.6s ease;
       }
-      @-moz-keyframes fadeIn {
-      0% {opacity:0;}
-      100% {opacity:1;}
+      .l {
+        font-size: 1.2em;
+        width: auto;
+        padding: 0.8em;
+        color: black;
       }
-      @-webkit-keyframes fadeIn {
-      0% {opacity:0;}
-      100% {opacity:1;}
+      .c {
+        display: none;
       }
-      @-o-keyframes fadeIn {
-      0% {opacity:0;}
-      100% {opacity:1;}
+      #o.c {
+        display: none;
       }
-      @-ms-keyframes fadeIn {
-      0% {opacity:0;}
-      100% {opacity:1;}
+      #x.c {
+        display: none;
+      }
+      @keyframes i {
+        0% {opacity:0;}
+        100% {opacity:1;}
       }
     </style>
   </head>
   <body>
-    <nav>
-      <div><img class="icon" alt='kis9a' src='../static/kis9a.png'></div>
-      <div class="name"><span>kis9a</span><span class="blink">'</span></div>
-      <div class="links">
-        <a class="link" href="https://medium.com/@kis9a" target="_blank">
-          <img class="link-img" alt='medium' src='../static/medium.png'>
-        </a>
-        <a class="link" href="https://github.com/kis9a" target="_blank">
-          <img class="link-img" alt='github' src='../static/github.png'>
-        </a>
-        <a class="link" href="https://instagram.com/kis9a" target="_blank">
-          <img class="link-img" alt='instagram' src='../static/instagram.png'>
-        </a>
-        <a class="link" href="https://instagram.com/kis9a" target="_blank">
-          <img class="link-img" alt='mail' src='../static/email.png'>
+    <div id="l">
+      <div id="h">
+        <div id="n">kis9a</div>
+        <div id="o" class="c" onclick="op()">o</div>
+        <div id='x' onclick="cl()">x</div>
+      </div>
+      <div id="c">
+        <a href="https://kis9a.com" target="_blank">
+          <img id="i" alt='kis9a' src='../static/kis9a.png'>
         </a>
       </div>
-    </nav>
+      <div id="t">
+        <div id="ls">
+          <a class="l" href="https://medium.com/@kis9a" target="_blank">Medium</a>
+          <a class="l" href="https://qiita.com/kis9a" target="_blank">Qiita</a>
+          <a class="l" href="https://twitter.com/kis9a" target="_blank">Twitter</a>
+          <a class="l" href="https://instagram.com/kis9a" target="_blank">Instagram</a>
+          <a class="l" href="https://github.com/kis9a" target="_blank">Github</a>
+          <a class="l" href="https://gist.github.com/kis9a" target="_blank">Ghgist</a>
+        </div>
+      </div>
+      </div>
+    </div>
   </body>
+  <script>let is = false;let o = document.getElementById('o');let x = document.getElementById('x');let t = document.getElementById('t'); function op() { o.classList.add('c'); x.classList.remove('c'); t.classList.remove('c'); is = true; } function cl() { o.classList.remove('c'); x.classList.add('c'); t.classList.add('c'); is = false; } </script>
 </html>
