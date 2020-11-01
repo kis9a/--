@@ -3,148 +3,48 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/png" href="../static/kis9a-nav.png"/>
     <title>kis9a - navigation</title>
-    <meta property="og:site_name" content="kis9a" /> 
-    <meta property="og:title" content="kis9a - navigation page">
-    <meta property="og:type" content="`website`">
-    <meta property="og:url" content="https://kis9a.github.io/navigation/">
-    <meta property="og:image" href="https://raw.githubusercontent.com/kis9a/nav/master/static/kis9a.png">
-    <style type="text/css">
-      body {
-        padding: 0;
-        margin: 0;
-        font-size: 16px;
-        font-family: Myrica M, serif;
-        display: flex;
-        align-items: center;
-        position: fixed;
-        top: 2em;
-        right: 2em;
-        left: 2em;
-        bottom: 2em;
-      }
+    <style>
       a {
-        display: block;
-        text-decoration: none;
+        color: inherit;
+        padding: 2px;
       }
-      #l {
+      .container {
+        margin: 1em;
+      }
+      .links {
         display: flex;
         flex-direction: column;
-        justify-items: center;
-        align-items: center;
-        width: 100%;
-      }
-      #h {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin: 1.5em 1.2em;
-        width: 90%;
-        max-width: 30em;
-      }
-      #n {
-        display: flex;
-        font-size: 1.3em;
-        letter-spacing: 5px;
-        line-height: 1.3em;
-        align-items: center;
-      }
-      #o {
-        font-size: 1.4em;
-        opacity: 0.7;
-        line-height: 1.4em;
-        display: flex;
-        align-items: center;
-        padding: 0 0.5em;
-        animation: i 3s ease infinite alternate;
-      }
-      #x {
-        z-index: 1000;
-        font-size: 1.4em;
-        opacity: 0.7;
-        line-height: 1.4em;
-        display: flex;
-        align-items: center;
-        padding: 0 0.5em;
-      }
-      #c {
-        max-width: 30em;
-        margin: 1.5em 1.5em;
-        width: 90%;
-        display: flex;
-      }
-      #i {
-        display: block;
-        width: 100%;
-        border-radius: 50%;
-        max-height: 6em;
-        max-width: 6em;
-        -webkit-border-radius:50%;
-        background-size: contain;
-        box-shadow: 0px 0px 3px black;
-        pointer-events: none;
-        opacity: 0.9;
-      }
-      #ls {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top: 0em;
-        right: 0em;
-        left: 0em;
-        bottom: 0em;
-        z-index: 100;
-        background: white;
-        animation: i 0.6s ease;
-      }
-      .l {
-        font-size: 1.2em;
-        width: auto;
-        padding: 0.8em;
-        color: black;
-      }
-      .c {
-        display: none;
-      }
-      #o.c {
-        display: none;
-      }
-      #x.c {
-        display: none;
-      }
-      @keyframes i {
-        0% {opacity:0;}
-        100% {opacity:1;}
+        font-size: 10px;
+        margin-top: 8px;
       }
     </style>
   </head>
   <body>
-    <div id="l">
-      <div id="h">
-        <div id="n">kis9a</div>
-        <div id="o" class="c" onclick="op()">o</div>
-        <div id='x' onclick="cl()">x</div>
-      </div>
-      <div id="c">
-        <a href="https://kis9a.com" target="_blank">
-          <img id="i" alt='kis9a' src='../static/kis9a.png'>
-        </a>
-      </div>
-      <div id="t">
-        <div id="ls">
-          <a class="l" href="https://medium.com/@kis9a" target="_blank">Medium</a>
-          <a class="l" href="https://qiita.com/kis9a" target="_blank">Qiita</a>
-          <a class="l" href="https://twitter.com/kis9a" target="_blank">Twitter</a>
-          <a class="l" href="https://instagram.com/kis9a" target="_blank">Instagram</a>
-          <a class="l" href="https://github.com/kis9a" target="_blank">Github</a>
-          <a class="l" href="https://gist.github.com/kis9a" target="_blank">Ghgist</a>
-        </div>
-      </div>
+    <div class="container">
+      <div id="main"></div>
+      <div><strong>kis9a</strong></div>
+      <div class="links">
+        <a href="https://github.com/kis9a" target="_blank">Github</a>
+        <a href="https://medium.com/@kis9a" target="_blank">Medium</a>
+        <a href="https://qiita.com/kis9a" target="_blank">Qiita</a>
+        <a href="https://twitter.com/kis9a" target="_blank">Twitter</a>
+        <a href="https://instagram.com/kis9a" target="_blank">Instagram</a>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/pixi.js@5.3.3/dist/pixi.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pixi-filters@2.6.1/dist/pixi-filters.js"></script>
+    <script src="./LiquidEffect.js"></script>
+    <script>
+      new LiquidEffect({
+        appendTo: "#main",
+        image: './kis9a.jpg',
+        displacementImage: "displacement_map.jpg",
+        displacementScale: 3,
+        speed: 5,
+        intensityX: 8,
+        intensityY: 8,
+      });
+    </script>
   </body>
-  <script>let is = false;let o = document.getElementById('o');let x = document.getElementById('x');let t = document.getElementById('t'); function op() { o.classList.add('c'); x.classList.remove('c'); t.classList.remove('c'); is = true; } function cl() { o.classList.remove('c'); x.classList.add('c'); t.classList.add('c'); is = false; } </script>
 </html>

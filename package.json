@@ -3,15 +3,23 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "yarn run inline & yarn run minifier",
-    "inline": "yarn html-inline -i src/index.html -o dist/index.html",
-    "minifier": "yarn html-minifier dist/index.html -o dist/index.html --collapse-inline-tag-whitespace --collapse-whitespace --minify-css --minify-js true",
+    "server": "http-server -o",
+    "build": "run-s minify:*",
+    "minify:html": "html-minifier src/index.html -o dist/index.html --collapse-inline-tag-whitespace --collapse-whitespace --minify-css --minify-js",
+    "minify:js": " esbuild src/*.js --outdir=dist --minify",
+    "minify:iamge": "imagemin src/*.png src/*.jpg --out-dir dist",
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.1"
   },
   "devDependencies": {
     "esbuild": "^0.6.25",
-    "html-inline": "^1.2.0",
     "html-minifier": "^4.0.0",
+    "http-server": "^0.12.3",
+    "imagemin": "^7.0.1",
+    "imagemin-cli": "^6.0.0",
+    "npm-run-all": "^4.1.5",
     "push-dir": "^0.4.1"
   }
 }
