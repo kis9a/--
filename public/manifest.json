@@ -1,6 +1,6 @@
 {
-  "name": "vue-pwa-tutorial",
-  "short_name": "vue-pwa-tutorial",
+  "name": "navigation",
+  "short_name": "navigation",
   "icons": [
     {
       "src": "./img/icons/android-chrome-192x192.png",
