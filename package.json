@@ -1,25 +1,37 @@
 {
-  "name": "nav",
-  "version": "1.0.0",
-  "license": "MIT",
+  "name": "vue-pwa-tutorial",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "server": "http-server -o",
-    "build": "run-s minify:*",
-    "minify:html": "html-minifier src/index.html -o dist/index.html --collapse-inline-tag-whitespace --collapse-whitespace --minify-css --minify-js",
-    "minify:js": " esbuild src/*.js --outdir=dist --minify",
-    "minify:iamge": "imagemin src/*.png src/*.jpg --out-dir dist",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "deploy": "firebase deploy",
+    "prettier:quick": "pretty-quick --staged"
   },
   "dependencies": {
-    "normalize.css": "^8.0.1"
+    "axios": "^0.21.0",
+    "node-fetch": "^2.6.1",
+    "register-service-worker": "^1.7.1",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.0-0"
   },
   "devDependencies": {
-    "esbuild": "^0.6.25",
-    "html-minifier": "^4.0.0",
-    "http-server": "^0.12.3",
-    "imagemin": "^7.0.1",
-    "imagemin-cli": "^6.0.0",
-    "npm-run-all": "^4.1.5",
-    "push-dir": "^0.4.1"
+    "@vue/cli-plugin-pwa": "~4.5.0",
+    "@vue/cli-plugin-router": "~4.5.0",
+    "@vue/cli-plugin-typescript": "~4.5.0",
+    "@vue/cli-plugin-vuex": "~4.5.0",
+    "@vue/cli-service": "~4.5.0",
+    "@vue/compiler-sfc": "^3.0.0",
+    "firebase-tools": "^8.16.2",
+    "husky": "^4.3.0",
+    "prettier": "^2.1.2",
+    "pretty-quick": "^3.1.0",
+    "typescript": "~3.9.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
