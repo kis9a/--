@@ -11,16 +11,16 @@
  * See https://goo.gl/2aRDsh
  */
 
-importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
-
 importScripts(
-  "/precache-manifest.891000531619e3c17936e6af5f989bb3.js"
+  "https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "vue-pwa-tutorial"});
+importScripts("/precache-manifest.d9d8c4ec94974c57e5ad422998a4abb8.js");
 
-self.addEventListener('message', (event) => {
-  if (event.data && event.data.type === 'SKIP_WAITING') {
+workbox.core.setCacheNameDetails({ prefix: "vue-pwa-tutorial" });
+
+self.addEventListener("message", (event) => {
+  if (event.data && event.data.type === "SKIP_WAITING") {
     self.skipWaiting();
   }
 });
