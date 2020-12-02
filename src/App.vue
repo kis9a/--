@@ -2,22 +2,21 @@
   <div id="nav">
     <router-link to="/">KIS9A</router-link>
   </div>
-  <router-view/>
+  <router-view />
   <CFooter />
 </template>
 
-<script lang='ts'>
-import CFooter from '@/components/CFooter.vue'
-import { defineComponent } from 'vue'
-import 'normalize.css'
+<script lang="ts">
+import CFooter from "@/components/CFooter.vue";
+import { defineComponent } from "vue";
+import "normalize.css";
 
 export default defineComponent({
-  name: 'App',
+  name: "App",
   components: {
-  CFooter
-}
-
-})
+    CFooter,
+  },
+});
 </script>
 
 <style>
