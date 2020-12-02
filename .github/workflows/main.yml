@@ -2,9 +2,11 @@ name: CI
 
 on: [push]
 
+env:
+  FILE_PATTERN: "src/**/*.{ts,tsx,js,jsx}"
+
 jobs:
-  FrontDeploy:
-    name: FrontDeploy
+  deploy:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout Repo
@@ -21,3 +23,17 @@ jobs:
     - name: deploy to Firebase Hosting
       run: |
         yarn deploy --token=${{ secrets.FIREBASE_TOKEN }}
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+      - name: Run Prettier
+        run: |
+          npx prettier --write ${FILE_PATTERN}
+      - uses: stefanzweifel/git-auto-commit-action@v3.0.0
+        with:
+          commit_message: prettier change
