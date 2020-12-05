@@ -1,6 +1,6 @@
 <template>
   <div class="c-footer-container">
-   <div class="links">
+    <div class="links">
       <a href="https://github.com/kis9a" target="_blank">
         <ion-icon name="logo-github"></ion-icon>
       </a>
