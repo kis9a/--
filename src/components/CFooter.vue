@@ -1,11 +1,12 @@
 <template>
   <div class="c-footer-container">
-    <div class="links">
-      <a href="https://github.com/kis9a" target="_blank">Github</a>
-      <a href="https://medium.com/@kis9a" target="_blank">Medium</a>
-      <a href="https://qiita.com/kis9a" target="_blank">Qiita</a>
-      <a href="https://twitter.com/kis9a" target="_blank">Twitter</a>
-      <a href="https://instagram.com/kis9a" target="_blank">Instagram</a>
+   <div class="links">
+      <a href="https://github.com/kis9a" target="_blank">
+        <ion-icon name="logo-github"></ion-icon>
+      </a>
+      <a href="https://instagram.com/kis9a" target="_blank">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a>
     </div>
   </div>
 </template>
@@ -32,6 +33,10 @@ export default defineComponent({
 a {
   padding: 4px;
   font-size: 12px;
+}
+
+ion-icon {
+  font-size: 18px;
   color: gray;
 }
 </style>

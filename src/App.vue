@@ -38,12 +38,13 @@ export default defineComponent({
 
 #nav a {
   font-weight: bold;
-  color: inherit;
+  color: gray;
   text-decoration: none;
   font-size: 15px;
 }
 
 #nav a.router-link-exact-active {
-  color: black;
+  color: inherit;
+  opacity: 0.9;
 }
 </style>
