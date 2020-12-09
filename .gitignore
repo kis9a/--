@@ -1,4 +1,5 @@
 node_modules/
+.firebase/
 dist/
 *.log
 npm-debug.log
