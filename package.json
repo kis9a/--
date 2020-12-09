@@ -1,5 +1,6 @@
 {
-  "name": "vue-pwa-tutorial",
+  "name": "kis9a-navigation",
+  "description": "kis9a navigation site for introduction personal activitie links",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -25,6 +26,8 @@
     "firebase-tools": "^8.16.2",
     "husky": "^4.3.0",
     "prettier": "^2.1.2",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
     "typescript": "~3.9.3"
   }
 }

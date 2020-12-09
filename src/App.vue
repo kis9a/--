@@ -19,7 +19,12 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang="scss">
+
+* {
+  background-color: #f00;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -38,13 +43,19 @@ export default defineComponent({
 
 #nav a {
   font-weight: bold;
-  color: gray;
   text-decoration: none;
   font-size: 15px;
+  opacity: 0.9;
 }
 
 #nav a.router-link-exact-active {
   color: inherit;
-  opacity: 0.9;
+  opacity: 1;
+}
+
+@media (max-width: 1000px) {
+  #app {
+    width: 90%;
+  }
 }
 </style>

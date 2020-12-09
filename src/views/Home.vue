@@ -1,5 +1,7 @@
 <template>
-  <div class="home"></div>
+  <div class="home">
+    <img alt="kis9a" class="hero" src="@/assets/kis9a.jpg">
+  </div>
 </template>
 
 <script lang="ts">
@@ -9,3 +11,13 @@ export default defineComponent({
   name: "Home",
 });
 </script>
+
+<style lang="scss">
+.hero {
+  width: 90%;
+  max-width: 600px;
+  mix-blend-mode: multiply;
+}
+
+
+</style>

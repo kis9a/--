@@ -1,10 +1,10 @@
 <template>
   <div class="c-footer-container">
     <div class="links">
-      <a href="https://github.com/kis9a" target="_blank">
+      <a href="https://github.com/kis9a" target="_blank" rel="noopener">
         <ion-icon name="logo-github"></ion-icon>
       </a>
-      <a href="https://instagram.com/kis9a" target="_blank">
+      <a href="https://instagram.com/kis9a" target="_blank" rel="noopener">
         <ion-icon name="logo-instagram"></ion-icon>
       </a>
     </div>
@@ -37,6 +37,6 @@ a {
 
 ion-icon {
   font-size: 18px;
-  color: gray;
+  color: black;
 }
 </style>
