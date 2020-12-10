@@ -2,10 +2,10 @@
   <div class="c-footer-container">
     <div class="links">
       <a href="https://github.com/kis9a" target="_blank" rel="noopener">
-        <ion-icon name="logo-github"></ion-icon>
+        <GithubIcon />
       </a>
       <a href="https://instagram.com/kis9a" target="_blank" rel="noopener">
-        <ion-icon name="logo-instagram"></ion-icon>
+        <InstagramIcon />
       </a>
     </div>
   </div>
@@ -13,12 +13,18 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import GithubIcon from 'vue-ionicons/dist/logo-github.vue';
+import InstagramIcon from 'vue-ionicons/dist/logo-instagram.vue';
 
 export default defineComponent({
   name: "CFooter",
   props: {
     msg: String,
   },
+  components: {
+    GithubIcon,
+    InstagramIcon
+  }
 });
 </script>
 
@@ -35,8 +41,8 @@ a {
   font-size: 12px;
 }
 
-ion-icon {
-  font-size: 18px;
+.ion {
+  font-size: 20px;
   color: black;
 }
 </style>
