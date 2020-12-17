@@ -9,6 +9,7 @@
     "deploy": "firebase deploy"
   },
   "dependencies": {
+    "@pixi/filter-displacement": "^5.3.4",
     "normalize.css": "^8.0.1",
     "pixi.js": "^5.3.4",
     "register-service-worker": "^1.7.1",
