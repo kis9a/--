@@ -16,9 +16,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import GithubIcon from 'vue-ionicons/dist/logo-github.vue';
-import TwitterIcon from 'vue-ionicons/dist/logo-twitter.vue'
-import MailIcon from 'vue-ionicons/dist/md-mail.vue'
+import GithubIcon from "vue-ionicons/dist/logo-github.vue";
+import TwitterIcon from "vue-ionicons/dist/logo-twitter.vue";
+import MailIcon from "vue-ionicons/dist/md-mail.vue";
 
 export default defineComponent({
   name: "CFooter",
@@ -28,8 +28,8 @@ export default defineComponent({
   components: {
     GithubIcon,
     TwitterIcon,
-    MailIcon
-  }
+    MailIcon,
+  },
 });
 </script>
 

@@ -72,6 +72,4 @@ export default defineComponent({
   max-width: 600px;
   mix-blend-mode: multiply;
 }
-
-
 </style>
