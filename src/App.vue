@@ -23,13 +23,14 @@ export default defineComponent({
   },
   mounted() {
     const pixi = new PIXI.Application({
-      width: 450,
-      height: 350,
+      width: 300,
+      height: 240,
       transparent: true,
     });
     document.querySelector('#canvas').append(pixi.view);
 
     pixi.renderer.plugins.interaction.moveWhenInside = !0,
+    pixi.renderer.backgroundColor = '#f00';
     pixi.stage.interactive = !0;
 
     const pixiContainer = new PIXI.Container();
@@ -37,10 +38,11 @@ export default defineComponent({
 
     const kis9a = PIXI.Sprite.from(kis9aImg);
     pixiContainer.addChild(kis9a);
-    kis9a.x = 0;
-    kis9a.y = -80;
-    kis9a.width = 500;
-    kis9a.heigh = 500;
+    kis9a.x = 50;
+    kis9a.y = -42;
+    kis9a.scale.set(0.6)
+    kis9a.width = 300;
+    kis9a.heigh = 300;
 
     const filter = PIXI.Sprite.from(filterImg);
     filter.scale.set(1);
@@ -59,10 +61,10 @@ export default defineComponent({
     pixi.stage.addChild(filter);
     kis9a.filters = [displacementFilter];
     displacementFilter.scale.x = 30;
-    displacementFilter.scale.y = 60;
+    displacementFilter.scale.y = 50;
 
     pixi.ticker.add(() => {
-        filter.x += 5;
+        filter.x += 4;
         if (filter.x > filter.width) {
           { filter.x = 0; }
         }
