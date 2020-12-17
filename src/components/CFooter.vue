@@ -4,8 +4,11 @@
       <a href="https://github.com/kis9a" target="_blank" rel="noopener">
         <GithubIcon />
       </a>
-      <a href="https://instagram.com/kis9a" target="_blank" rel="noopener">
-        <InstagramIcon />
+      <a href="https://twitter.com/kis9a" target="_blank" rel="noopener">
+        <TwitterIcon />
+      </a>
+      <a href="mailto:kis9ax@gmail.com">
+        <MailIcon />
       </a>
     </div>
   </div>
@@ -14,7 +17,8 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import GithubIcon from 'vue-ionicons/dist/logo-github.vue';
-import InstagramIcon from 'vue-ionicons/dist/logo-instagram.vue';
+import TwitterIcon from 'vue-ionicons/dist/logo-twitter.vue'
+import MailIcon from 'vue-ionicons/dist/md-mail.vue'
 
 export default defineComponent({
   name: "CFooter",
@@ -23,7 +27,8 @@ export default defineComponent({
   },
   components: {
     GithubIcon,
-    InstagramIcon
+    TwitterIcon,
+    MailIcon
   }
 });
 </script>
