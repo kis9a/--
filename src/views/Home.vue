@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <img alt="kis9a" class="hero" src="@/assets/kis9a.jpg">
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 
+    /* <img alt="kis9a" class="hero" src="@/assets/kis9a.jpg"> */
 export default defineComponent({
   name: "Home",
 });

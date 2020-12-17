@@ -12,7 +12,7 @@ import CFooter from "@/components/CFooter.vue";
 import { defineComponent } from "vue";
 import '@pixi/filter-displacement'
 import * as PIXI from 'pixi.js'
-import kis9aImg from '@/assets/kis9a.png'
+import kis9aImg from '@/assets/kis9ab.png'
 import filterImg from '@/assets/filter.jpg'
 import "normalize.css";
 
@@ -22,69 +22,29 @@ export default defineComponent({
     CFooter,
   },
   mounted() {
-    /* const app = new PIXI.Application(); */
-    /* document.body.appendChild(app.view); */
-
-    /* app.stage.interactive = true; */
-
-    /* const container = new PIXI.Container(); */
-    /* app.stage.addChild(container); */
-
-    /* const flag = PIXI.Sprite.from(kis9aImg); */
-    /* container.addChild(flag); */
-    /* flag.x = 100; */
-    /* flag.y = 100; */
-
-    /* const displacementSprite = PIXI.Sprite.from(filterImg); */
-    /* // Make sure the sprite is wrapping. */
-    /* displacementSprite.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT; */
-    /* const displacementFilter = new PIXI.filters.DisplacementFilter(displacementSprite); */
-    /* displacementFilter.padding = 10; */
-
-    /* displacementSprite.position = flag.position; */
-
-    /* app.stage.addChild(displacementSprite); */
-
-    /* flag.filters = [displacementFilter]; */
-
-    /* displacementFilter.scale.x = 30; */
-    /* displacementFilter.scale.y = 60; */
-
-    /* app.ticker.add(() => { */
-    /*     // Offset the sprite position to make vFilterCoord update to larger value. Repeat wrapping makes sure there's still pixels on the coordinates. */
-    /*     displacementSprite.x++; */
-    /*     // Reset x to 0 when it's over width to keep values from going to very huge numbers. */
-    /*     if (displacementSprite.x > displacementSprite.width) { displacementSprite.x = 0; } */
-    /* }); */
-
-    PIXI.utils.skipHello();
     const pixi = new PIXI.Application({
-      width: 160,
-      height: 130,
-      transparent: true
+      width: 450,
+      height: 350,
+      transparent: true,
     });
-    /* document.querySelector('#canvas').append(pixi.view); */
-    document.body.appendChild(pixi.view);
+    document.querySelector('#canvas').append(pixi.view);
+
     pixi.renderer.plugins.interaction.moveWhenInside = !0,
     pixi.stage.interactive = !0;
 
     const pixiContainer = new PIXI.Container();
     pixi.stage.addChild(pixiContainer);
-    const kis9a = PIXI.Sprite.from(kis9aImg);
 
-    pixiContainer.addChild(kis9a),
-    kis9a.x = 40;
-    kis9a.y = 50;
-    kis9a.anchor.set(0.5);
-    kis9a.scale.set(1);
-    kis9a.width = 125;
-    kis9a.height = 75;
+    const kis9a = PIXI.Sprite.from(kis9aImg);
+    pixiContainer.addChild(kis9a);
+    kis9a.x = 0;
+    kis9a.y = -80;
+    kis9a.width = 500;
+    kis9a.heigh = 500;
 
     const filter = PIXI.Sprite.from(filterImg);
-    filter.scale.set(8);
+    filter.scale.set(1);
     filter.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
-    filter.position = kis9a.position;
-    pixi.stage.addChild(filter);
 
     const graphics= new PIXI.Graphics();
     graphics.interactive = !0;
@@ -94,19 +54,19 @@ export default defineComponent({
     graphics.drawRect(10, 10, 680, 580);
     graphics.endFill();
 
-    const displacement = new PIXI.filters.DisplacementFilter(filter)
-    displacement.padding = 20;
-
-    kis9a.filter = displacement;
-    displacement.scale.x = 15 * 8;
-    displacement.scale.y = 30 * 8;
+    const displacementFilter = new PIXI.filters.DisplacementFilter(filter);
+    displacementFilter.padding = 20;
+    pixi.stage.addChild(filter);
+    kis9a.filters = [displacementFilter];
+    displacementFilter.scale.x = 30;
+    displacementFilter.scale.y = 60;
 
     pixi.ticker.add(() => {
-      displacement.x += 4;
-      if (displacement.x > displacement.width) {
-         displacement.x = 0;
-      }
-    })
+        filter.x += 5;
+        if (filter.x > filter.width) {
+          { filter.x = 0; }
+        }
+    });
   }
 });
 </script>
