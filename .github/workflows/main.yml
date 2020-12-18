@@ -9,31 +9,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@master
-    - name: setup Node
-      uses: actions/setup-node@v1
-      with:
-        node-version: 10.x
-        registry-url: 'https://registry.npmjs.org'
-    - name: Install Dependencies
-      run: npm install
-    - name: Build
-      run: npm run build
-    - name: deploy to Firebase Hosting
-      run: |
-        yarn deploy --token=${{ secrets.FIREBASE_TOKEN }}
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - name: Checkout Repo
+        uses: actions/checkout@master
+      - name: setup Node
+        uses: actions/setup-node@v1
         with:
-          node-version: 12.x
-      - name: Run Prettier
+          node-version: 10.x
+          registry-url: "https://registry.npmjs.org"
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: deploy to Firebase Hosting
         run: |
-          npx prettier --write ${FILE_PATTERN}
-      - uses: stefanzweifel/git-auto-commit-action@v3.0.0
-        with:
-          commit_message: .github/workflows/main.yml jobs.lint prettier src/*
+          yarn deploy --token=${{ secrets.FIREBASE_TOKEN }}
