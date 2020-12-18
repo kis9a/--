@@ -27,7 +27,7 @@ export default defineComponent({
   data() {
     return {
       loading: false,
-    }
+    };
   },
   components: {
     GithubIcon,

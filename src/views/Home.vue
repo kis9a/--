@@ -6,8 +6,8 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import '@pixi/filter-displacement'
-import * as PIXI from 'pixi.js'
+import "@pixi/filter-displacement";
+import * as PIXI from "pixi.js";
 
 export default defineComponent({
   name: "Home",
@@ -15,9 +15,9 @@ export default defineComponent({
   data() {
     return {
       loading: false,
-      kis9aImg: require('../assets/kis9ab.png'),
-      filterImg: require('../assets/filter.jpg')
-    }
+      kis9aImg: require("../assets/kis9ab.png"),
+      filterImg: require("../assets/filter.jpg"),
+    };
   },
   mounted() {
     PIXI.utils.skipHello();
@@ -27,13 +27,13 @@ export default defineComponent({
       transparent: true,
     });
 
-    const canvas = <HTMLInputElement>document.querySelector('#canvas');
-    if(canvas) { 
+    const canvas = <HTMLInputElement>document.querySelector("#canvas");
+    if (canvas) {
       canvas.append(pixi.view);
     }
 
-    pixi.renderer.plugins.interaction.moveWhenInside = !0,
-    /* pixi.renderer.backgroundColor = '#f00'; */
+    (pixi.renderer.plugins.interaction.moveWhenInside = !0),
+      (pixi.renderer.backgroundColor = 9);
     pixi.stage.interactive = !0;
 
     const pixiContainer = new PIXI.Container();
@@ -43,7 +43,7 @@ export default defineComponent({
     pixiContainer.addChild(kis9a);
     kis9a.x = 50;
     kis9a.y = -42;
-    kis9a.scale.set(0.6)
+    kis9a.scale.set(0.6);
     kis9a.width = 300;
     kis9a.height = 300;
 
@@ -51,7 +51,7 @@ export default defineComponent({
     filter.scale.set(1);
     filter.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
 
-    const graphics= new PIXI.Graphics();
+    const graphics = new PIXI.Graphics();
     graphics.interactive = !0;
     pixi.stage.addChild(graphics);
     graphics.beginFill(0, 0.0001);
@@ -66,17 +66,23 @@ export default defineComponent({
     displacementFilter.scale.y = 50;
 
     pixi.ticker.add(() => {
-        filter.x += 4;
-        if (filter.x > filter.width) {
-          { filter.x = 0; }
+      filter.x += 4;
+      if (filter.x > filter.width) {
+        {
+          filter.x = 0;
         }
+      }
     });
     this.loading = false;
-  }
+  },
 });
 </script>
 
 <style lang="scss" scoped>
+#canvas {
+  margin: 30px 0px;
+}
+
 .hero {
   width: 90%;
   max-width: 600px;

@@ -8,14 +8,14 @@
 import { defineComponent } from "vue";
 import CFooter from "@/components/CFooter.vue";
 import CHeader from "@/components/CHeader.vue";
-(async () => require('normalize.css'))();
+(async () => require("normalize.css"))();
 
 export default defineComponent({
   name: "App",
   components: {
     CHeader,
-    CFooter
-  }
+    CFooter,
+  },
 });
 </script>
 

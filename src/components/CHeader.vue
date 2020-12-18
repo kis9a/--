@@ -12,12 +12,11 @@ import { defineComponent } from "vue";
 export default defineComponent({
   name: "CHeader",
   data() {
-    return {       
+    return {
       loading: false,
-    }
-  }
+    };
+  },
 });
-
 </script>
 
 <style lang="scss" scoped>
@@ -30,12 +29,7 @@ export default defineComponent({
   font-weight: bold;
   text-decoration: none;
   font-size: 15px;
-  opacity: 0.8;
-}
-
-#nav a.router-link-exact-active {
-  color: inherit;
-  opacity: 0.9;
+  opacity: 1;
 }
 
 .v-leave-active,
@@ -47,5 +41,4 @@ export default defineComponent({
 .v-leave-to {
   opacity: 0;
 }
-
 </style>
