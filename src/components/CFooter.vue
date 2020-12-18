@@ -25,7 +25,7 @@ import MailIcon from "vue-ionicons/dist/md-mail.vue";
 export default defineComponent({
   name: "CFooter",
   data() {
-    return {       
+    return {
       loading: false,
     }
   },
@@ -52,12 +52,11 @@ a {
 .ion {
   font-size: 16px;
   color: black;
-  opacity: 0.9;
 }
 
 .v-leave-active,
 .v-enter-active {
-  transition: opacity 3s;
+  transition: opacity 3.5s;
 }
 
 .v-enter-from,

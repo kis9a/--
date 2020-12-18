@@ -4,7 +4,7 @@
   </transition>
 </template>
 
-<script lang="js">
+<script lang="ts">
 import { defineComponent } from "vue";
 import '@pixi/filter-displacement'
 import * as PIXI from 'pixi.js'
@@ -26,10 +26,14 @@ export default defineComponent({
       height: 240,
       transparent: true,
     });
-    document.querySelector('#canvas').append(pixi.view);
+
+    const canvas = <HTMLInputElement>document.querySelector('#canvas');
+    if(canvas) { 
+      canvas.append(pixi.view);
+    }
 
     pixi.renderer.plugins.interaction.moveWhenInside = !0,
-    pixi.renderer.backgroundColor = '#f00';
+    /* pixi.renderer.backgroundColor = '#f00'; */
     pixi.stage.interactive = !0;
 
     const pixiContainer = new PIXI.Container();
@@ -41,7 +45,7 @@ export default defineComponent({
     kis9a.y = -42;
     kis9a.scale.set(0.6)
     kis9a.width = 300;
-    kis9a.heigh = 300;
+    kis9a.height = 300;
 
     const filter = PIXI.Sprite.from(this.filterImg);
     filter.scale.set(1);
@@ -49,7 +53,6 @@ export default defineComponent({
 
     const graphics= new PIXI.Graphics();
     graphics.interactive = !0;
-    graphics.button = !1;
     pixi.stage.addChild(graphics);
     graphics.beginFill(0, 0.0001);
     graphics.drawRect(10, 10, 680, 580);
@@ -87,7 +90,7 @@ export default defineComponent({
 
 .v-leave-active,
 .v-enter-active {
-  transition: opacity 3s;
+  transition: opacity 2.5s;
 }
 
 .v-enter-from,

@@ -4,7 +4,7 @@
   <CFooter />
 </template>
 
-<script lang="js">
+<script lang="ts">
 import { defineComponent } from "vue";
 import CFooter from "@/components/CFooter.vue";
 import CHeader from "@/components/CHeader.vue";
