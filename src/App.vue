@@ -1,7 +1,5 @@
 <template>
-  <div id="nav">
-    <router-link to="/">KIS9A</router-link>
-  </div>
+  <CHeader />
   <router-view />
   <CFooter />
 </template>
@@ -9,12 +7,14 @@
 <script lang="js">
 import { defineComponent } from "vue";
 import CFooter from "@/components/CFooter.vue";
-import "normalize.css";
+import CHeader from "@/components/CHeader.vue";
+(async () => require('normalize.css'))();
 
 export default defineComponent({
   name: "App",
   components: {
-    CFooter,
+    CHeader,
+    CFooter
   }
 });
 </script>
@@ -33,23 +33,6 @@ export default defineComponent({
   margin: 5% auto;
   width: 76%;
   max-width: 640px;
-}
-
-#nav {
-  padding: 15px;
-  text-align: start;
-}
-
-#nav a {
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 15px;
-  opacity: 0.9;
-}
-
-#nav a.router-link-exact-active {
-  color: inherit;
-  opacity: 1;
 }
 
 @media (max-width: 1000px) {

@@ -1,17 +1,19 @@
 <template>
-  <div class="c-footer-container">
-    <div class="links">
-      <a href="https://github.com/kis9a" target="_blank" rel="noopener">
-        <GithubIcon />
-      </a>
-      <a href="https://twitter.com/kis9a" target="_blank" rel="noopener">
-        <TwitterIcon />
-      </a>
-      <a href="mailto:kis9ax@gmail.com">
-        <MailIcon />
-      </a>
+  <transition appear>
+    <div v-if="!loading" class="c-footer-container">
+      <div class="links">
+        <a href="https://github.com/kis9a" target="_blank" rel="noopener">
+          <GithubIcon />
+        </a>
+        <a href="https://twitter.com/kis9a" target="_blank" rel="noopener">
+          <TwitterIcon />
+        </a>
+        <a href="mailto:kis9ax@gmail.com">
+          <MailIcon />
+        </a>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 
 <script lang="ts">
@@ -22,8 +24,10 @@ import MailIcon from "vue-ionicons/dist/md-mail.vue";
 
 export default defineComponent({
   name: "CFooter",
-  props: {
-    msg: String,
+  data() {
+    return {       
+      loading: false,
+    }
   },
   components: {
     GithubIcon,
@@ -33,13 +37,12 @@ export default defineComponent({
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style lang="scss" scoped>
 .links {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  padding: 15px;
+  padding: 12px 8px;
 }
 a {
   padding: 4px;
@@ -47,7 +50,18 @@ a {
 }
 
 .ion {
-  font-size: 20px;
+  font-size: 16px;
   color: black;
+  opacity: 0.9;
+}
+
+.v-leave-active,
+.v-enter-active {
+  transition: opacity 3s;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>

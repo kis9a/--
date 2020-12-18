@@ -1,18 +1,24 @@
 <template>
-  <div id="canvas"></div>
+  <transition appear>
+    <div v-if="!loading" id="canvas"></div>
+  </transition>
 </template>
 
 <script lang="js">
 import { defineComponent } from "vue";
 import '@pixi/filter-displacement'
 import * as PIXI from 'pixi.js'
-import kis9aImg from '@/assets/kis9ab.png'
-import filterImg from '@/assets/filter.jpg'
 
-    /* <img alt="kis9a" class="hero" src="@/assets/kis9a.jpg"> */
 export default defineComponent({
   name: "Home",
   component: {},
+  data() {
+    return {
+      loading: false,
+      kis9aImg: require('../assets/kis9ab.png'),
+      filterImg: require('../assets/filter.jpg')
+    }
+  },
   mounted() {
     PIXI.utils.skipHello();
     const pixi = new PIXI.Application({
@@ -29,7 +35,7 @@ export default defineComponent({
     const pixiContainer = new PIXI.Container();
     pixi.stage.addChild(pixiContainer);
 
-    const kis9a = PIXI.Sprite.from(kis9aImg);
+    const kis9a = PIXI.Sprite.from(this.kis9aImg);
     pixiContainer.addChild(kis9a);
     kis9a.x = 50;
     kis9a.y = -42;
@@ -37,7 +43,7 @@ export default defineComponent({
     kis9a.width = 300;
     kis9a.heigh = 300;
 
-    const filter = PIXI.Sprite.from(filterImg);
+    const filter = PIXI.Sprite.from(this.filterImg);
     filter.scale.set(1);
     filter.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
 
@@ -62,14 +68,30 @@ export default defineComponent({
           { filter.x = 0; }
         }
     });
+    this.loading = false;
   }
 });
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .hero {
   width: 90%;
   max-width: 600px;
   mix-blend-mode: multiply;
+}
+
+.loading {
+  display: block;
+  height: 240px;
+}
+
+.v-leave-active,
+.v-enter-active {
+  transition: opacity 3s;
+}
+
+.v-enter-from,
+.v-leave-to {
+  opacity: 0;
 }
 </style>
