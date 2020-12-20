@@ -1,7 +1,8 @@
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const ImageminWebp = require("imagemin-webp-webpack-plugin");
 const ImageminMozJpeg = require("imagemin-mozjpeg");
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 module.exports = {
   pwa: {

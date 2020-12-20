@@ -6,7 +6,19 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "format": "prettier --write .",
+    "lint": "yarn eslint --ext .ts,.vue ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.@(ts|vue)": [
+      "yarn format"
+    ]
   },
   "dependencies": {
     "@pixi/filter-displacement": "^5.3.5",
@@ -21,18 +33,29 @@
   },
   "devDependencies": {
     "@types/jquery": "^3.5.5",
+    "@typescript-eslint/eslint-plugin": "^4.9.1",
+    "@typescript-eslint/parser": "^4.9.1",
     "@vue/cli-plugin-pwa": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/composition-api": "^1.0.0-beta.20",
+    "@vue/compiler-sfc": "^3.0.4",
+    "@vue/composition-api": "^1.0.0-beta.22",
+    "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "@vue/test-utils": "^2.0.0-beta.12",
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-webpack-plugin": "^2.4.1",
+    "eslint-plugin-prettier": "^3.2.0",
+    "eslint-plugin-vue": "^7.2.0",
     "firebase-tools": "^9.0.1",
     "husky": "^4.3.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-webp-webpack-plugin": "^3.3.3",
     "imagemin-webpack-plugin": "^2.4.2",
+    "lint-staged": "^10.0.10",
     "prettier": "^2.1.2",
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",

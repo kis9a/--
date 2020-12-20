@@ -2,9 +2,7 @@
   <transition appear>
     <div v-if="!loading" id="nav">
       <router-link to="/">
-        <h1>
-          KIS9A
-        </h1>
+        <h1>KIS9A</h1>
       </router-link>
     </div>
   </transition>

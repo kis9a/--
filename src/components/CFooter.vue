@@ -2,13 +2,23 @@
   <transition appear>
     <div v-if="!loading" class="c-footer-container">
       <div class="links">
-        <a href="https://github.com/kis9a" target="_blank" aria-label="github" rel="noopener">
+        <a
+          href="https://github.com/kis9a"
+          target="_blank"
+          aria-label="github"
+          rel="noopener"
+        >
           <GithubIcon />
         </a>
-        <a href="https://twitter.com/kis9a" target="_blank" aria-label="twitter" rel="noopener">
+        <a
+          href="https://twitter.com/kis9a"
+          target="_blank"
+          aria-label="twitter"
+          rel="noopener"
+        >
           <TwitterIcon />
         </a>
-        <a href="mailto:kis9ax@gmail.com" aria-label="mail" >
+        <a href="mailto:kis9ax@gmail.com" aria-label="mail">
           <MailIcon />
         </a>
       </div>
@@ -24,15 +34,15 @@ import MailIcon from "vue-ionicons/dist/md-mail.vue";
 
 export default defineComponent({
   name: "CFooter",
-  data() {
-    return {
-      loading: false,
-    };
-  },
   components: {
     GithubIcon,
     TwitterIcon,
     MailIcon,
+  },
+  data() {
+    return {
+      loading: false,
+    };
   },
 });
 </script>
