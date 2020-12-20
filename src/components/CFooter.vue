@@ -2,13 +2,13 @@
   <transition appear>
     <div v-if="!loading" class="c-footer-container">
       <div class="links">
-        <a href="https://github.com/kis9a" target="_blank" rel="noopener">
+        <a href="https://github.com/kis9a" target="_blank" aria-label="github" rel="noopener">
           <GithubIcon />
         </a>
-        <a href="https://twitter.com/kis9a" target="_blank" rel="noopener">
+        <a href="https://twitter.com/kis9a" target="_blank" aria-label="twitter" rel="noopener">
           <TwitterIcon />
         </a>
-        <a href="mailto:kis9ax@gmail.com">
+        <a href="mailto:kis9ax@gmail.com" aria-label="mail" >
           <MailIcon />
         </a>
       </div>
@@ -42,10 +42,10 @@ export default defineComponent({
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
-  padding: 12px 8px;
+  padding: 6px 8px;
 }
 a {
-  padding: 4px;
+  padding: 8px;
   font-size: 12px;
 }
 
@@ -56,7 +56,7 @@ a {
 
 .v-leave-active,
 .v-enter-active {
-  transition: opacity 3.5s;
+  transition: opacity 2s;
 }
 
 .v-enter-from,

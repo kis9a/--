@@ -1,7 +1,11 @@
 <template>
   <transition appear>
     <div v-if="!loading" id="nav">
-      <router-link to="/">KIS9A</router-link>
+      <router-link to="/">
+        <h1>
+          KIS9A
+        </h1>
+      </router-link>
     </div>
   </transition>
 </template>
@@ -21,20 +25,28 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 #nav {
-  padding: 12px 8px;
+  padding: 12px 6px;
   text-align: start;
 }
 
 #nav a {
   font-weight: bold;
   text-decoration: none;
-  font-size: 15px;
   opacity: 1;
+}
+
+h1 {
+  color: black;
+  font-size: 16px;
+  display: block;
+  margin: 0px;
+  padding: 4px;
+  width: 8%;
 }
 
 .v-leave-active,
 .v-enter-active {
-  transition: opacity 3s;
+  transition: opacity 2s;
 }
 
 .v-enter-from,

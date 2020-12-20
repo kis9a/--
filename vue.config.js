@@ -1,6 +1,7 @@
 const ImageminPlugin = require("imagemin-webpack-plugin").default;
 const ImageminWebp = require("imagemin-webp-webpack-plugin");
 const ImageminMozJpeg = require("imagemin-mozjpeg");
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
 module.exports = {
   pwa: {
@@ -13,7 +14,7 @@ module.exports = {
       {
         test: /\.(jpg|png)$/i,
         option: {
-          quality: 95,
+          quality: 90,
         },
       },
     ]);
@@ -23,11 +24,12 @@ module.exports = {
         test: /\.(jpg|png)$/i,
         disable: process.env.NODE_ENV !== "production",
         pngquant: {
-          quality: "95",
+          quality: "90",
         },
         plugins: [
+          new BundleAnalyzerPlugin(),
           ImageminMozJpeg({
-            quality: 95,
+            quality: 90,
             progressive: true,
           }),
         ],

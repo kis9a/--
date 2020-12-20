@@ -51,13 +51,6 @@ export default defineComponent({
     filter.scale.set(1);
     filter.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
 
-    const graphics = new PIXI.Graphics();
-    graphics.interactive = !0;
-    pixi.stage.addChild(graphics);
-    graphics.beginFill(0, 0.0001);
-    graphics.drawRect(10, 10, 680, 580);
-    graphics.endFill();
-
     const displacementFilter = new PIXI.filters.DisplacementFilter(filter);
     displacementFilter.padding = 20;
     pixi.stage.addChild(filter);
@@ -80,7 +73,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 #canvas {
-  margin: 30px 0px;
+  margin: 35px 0px;
 }
 
 .hero {
@@ -96,7 +89,7 @@ export default defineComponent({
 
 .v-leave-active,
 .v-enter-active {
-  transition: opacity 2.5s;
+  transition: opacity 1s;
 }
 
 .v-enter-from,
