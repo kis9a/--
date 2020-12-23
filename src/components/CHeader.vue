@@ -25,6 +25,8 @@ export default defineComponent({
 #nav {
   padding: 12px 6px;
   text-align: start;
+  display: flex;
+  flex-direction: left;
 }
 
 #nav a {
@@ -35,11 +37,10 @@ export default defineComponent({
 
 h1 {
   color: black;
-  font-size: 16px;
+  font-size: 15px;
   display: block;
   margin: 0px;
   padding: 4px;
-  width: 8%;
 }
 
 .v-leave-active,

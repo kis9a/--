@@ -15,7 +15,7 @@ module.exports = {
       {
         test: /\.(jpg|png)$/i,
         option: {
-          quality: 90,
+          quality: 95,
         },
       },
     ]);
@@ -25,12 +25,12 @@ module.exports = {
         test: /\.(jpg|png)$/i,
         disable: process.env.NODE_ENV !== "production",
         pngquant: {
-          quality: "90",
+          quality: "95",
         },
         plugins: [
           new BundleAnalyzerPlugin(),
           ImageminMozJpeg({
-            quality: 90,
+            quality: 95,
             progressive: true,
           }),
         ],
@@ -39,7 +39,7 @@ module.exports = {
   },
   pluginOptions: {
     webpackBundleAnalyzer: {
-      openAnalyzer: false
-    }
-  }
+      openAnalyzer: false,
+    },
+  },
 };
