@@ -3,14 +3,6 @@
     <div v-if="!loading" class="c-footer-container">
       <div class="links">
         <a
-          href="https://github.com/kis9a"
-          target="_blank"
-          aria-label="github"
-          rel="noopener"
-        >
-          <GithubIcon />
-        </a>
-        <a
           href="https://twitter.com/kis9a"
           target="_blank"
           aria-label="twitter"
@@ -18,8 +10,13 @@
         >
           <TwitterIcon />
         </a>
-        <a href="mailto:kis9ax@gmail.com" aria-label="mail">
-          <MailIcon />
+        <a
+          href="https://github.com/kis9a"
+          target="_blank"
+          aria-label="github"
+          rel="noopener"
+        >
+          <GithubIcon />
         </a>
       </div>
     </div>
@@ -37,7 +34,6 @@ export default defineComponent({
   components: {
     GithubIcon,
     TwitterIcon,
-    MailIcon,
   },
   data() {
     return {
@@ -56,17 +52,17 @@ export default defineComponent({
 }
 
 a {
-  padding: 4px;
+  padding: 6px;
 }
 
 .ion {
-  font-size: 14px;
+  font-size: 16px;
   color: black;
 }
 
 .v-leave-active,
 .v-enter-active {
-  transition: opacity 2s;
+  transition: opacity 0.4s;
 }
 
 .v-enter-from,

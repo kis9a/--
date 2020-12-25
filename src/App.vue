@@ -30,9 +30,9 @@ export default defineComponent({
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin: 5% auto;
-  width: 76%;
-  max-width: 640px;
+  margin: 6% auto;
+  width: 72%;
+  max-width: 580px;
 }
 
 @media (max-width: 1000px) {

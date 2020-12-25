@@ -16,7 +16,14 @@ import {
 } from "vue";
 import kis9aImg from "@/assets/kis9ab.png";
 import filterImg from "@/assets/filter.jpg";
-import * as PIXI from "pixi.js";
+import {
+  Application,
+  Container,
+  Sprite,
+  settings,
+  utils,
+  filters,
+} from "pixi.js";
 
 export default defineComponent({
   name: "Home",
@@ -25,32 +32,32 @@ export default defineComponent({
     const data = reactive({
       loading: true,
     });
-    PIXI.utils.skipHello();
-    const pixi = new PIXI.Application({
-      width: 300,
-      height: 240,
+    utils.skipHello();
+    const pixi = new Application({
+      width: 280,
+      height: 190,
       transparent: true,
     });
     (pixi.renderer.plugins.interaction.moveWhenInside = !0),
       (pixi.renderer.backgroundColor = 9);
     pixi.stage.interactive = !0;
 
-    const pixiContainer = new PIXI.Container();
+    const pixiContainer = new Container();
     pixi.stage.addChild(pixiContainer);
 
-    const kis9a = PIXI.Sprite.from(kis9aImg);
+    const kis9a = Sprite.from(kis9aImg);
     pixiContainer.addChild(kis9a);
     kis9a.x = 50;
     kis9a.y = -42;
     kis9a.scale.set(0.6);
-    kis9a.width = 300;
-    kis9a.height = 300;
+    kis9a.width = 260;
+    kis9a.height = 260;
 
-    const filter = PIXI.Sprite.from(filterImg);
-    filter.scale.set(1);
-    filter.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
+    const filter = Sprite.from(filterImg);
+    filter.scale.set(1.2);
+    filter.texture.baseTexture.wrapMode = settings.WRAP_MODE[1];
 
-    const displacementFilter = new PIXI.filters.DisplacementFilter(filter);
+    const displacementFilter = new filters.DisplacementFilter(filter);
     displacementFilter.padding = 20;
     pixi.stage.addChild(filter);
     kis9a.filters = [displacementFilter];
@@ -63,7 +70,7 @@ export default defineComponent({
         canvas.append(pixi.view);
       }
       pixi.ticker.add(() => {
-        filter.x += 4;
+        filter.x += 5;
         if (filter.x > filter.width) {
           {
             filter.x = 0;
@@ -81,7 +88,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 #canvas {
-  margin: 35px 0px;
+  margin: 60px 0px 40px;
 }
 
 .hero {
@@ -97,7 +104,7 @@ export default defineComponent({
 
 .v-leave-active,
 .v-enter-active {
-  transition: opacity 1s;
+  transition: opacity 0.6s;
 }
 
 .v-enter-from,

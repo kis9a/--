@@ -37,15 +37,17 @@ export default defineComponent({
 
 h1 {
   color: black;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 600;
   display: block;
   margin: 0px;
   padding: 4px;
+  letter-spacing: 1.2px;
 }
 
 .v-leave-active,
 .v-enter-active {
-  transition: opacity 2s;
+  transition: opacity 0.4s;
 }
 
 .v-enter-from,
