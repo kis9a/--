@@ -1,3 +1,38 @@
 node_modules
 .DS_Store
 dist
+
+  setup() {
+    const data = reactive({
+      indexInfo: {}
+    });
+    onMounted(async () => {
+      const result = await CommonService.getIndexInfo();
+      data.indexInfo = result.data;
+    });
+    const changeIndexInfo = () => {
+      data.indexInfo = { 1: 2 };
+    };
+
+    const store = useStore();
+    const state = reactive({
+      name: computed(() => store.state.user.name),
+      age: computed(() => store.state.user.age)
+    });
+    const getter = reactive({
+      lowCaseName: computed(() => store.getters.lowCaseName)
+    });
+    const ageIncreaeNum = ref(1);
+    const increase = () => {
+      store.commit({ type: "INCREASE_AGE", age: ageIncreaeNum.value || 0 });
+    };
+
+    return {
+      ...toRefs(data),
+      changeIndexInfo,
+      ...toRefs(state),
+      ...toRefs(getter),
+      increase,
+      ageIncreaeNum
+    };
+  }

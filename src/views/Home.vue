@@ -1,37 +1,36 @@
 <template>
   <transition appear>
     <div v-if="!loading" id="canvas"></div>
+    <div v-else class="loading"></div>
   </transition>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import "@pixi/filter-displacement";
+import {
+  defineComponent,
+  onMounted,
+  reactive,
+  toRefs,
+  computed,
+  ref,
+} from "vue";
+import kis9aImg from "@/assets/kis9ab.png";
+import filterImg from "@/assets/filter.jpg";
 import * as PIXI from "pixi.js";
 
 export default defineComponent({
   name: "Home",
   component: {},
-  data() {
-    return {
-      loading: false,
-      kis9aImg: require("../assets/kis9ab.png"),
-      filterImg: require("../assets/filter.jpg"),
-    };
-  },
-  mounted() {
+  setup() {
+    const data = reactive({
+      loading: true,
+    });
     PIXI.utils.skipHello();
     const pixi = new PIXI.Application({
       width: 300,
       height: 240,
       transparent: true,
     });
-
-    const canvas = <HTMLInputElement>document.querySelector("#canvas");
-    if (canvas) {
-      canvas.append(pixi.view);
-    }
-
     (pixi.renderer.plugins.interaction.moveWhenInside = !0),
       (pixi.renderer.backgroundColor = 9);
     pixi.stage.interactive = !0;
@@ -39,7 +38,7 @@ export default defineComponent({
     const pixiContainer = new PIXI.Container();
     pixi.stage.addChild(pixiContainer);
 
-    const kis9a = PIXI.Sprite.from(this.kis9aImg);
+    const kis9a = PIXI.Sprite.from(kis9aImg);
     pixiContainer.addChild(kis9a);
     kis9a.x = 50;
     kis9a.y = -42;
@@ -47,7 +46,7 @@ export default defineComponent({
     kis9a.width = 300;
     kis9a.height = 300;
 
-    const filter = PIXI.Sprite.from(this.filterImg);
+    const filter = PIXI.Sprite.from(filterImg);
     filter.scale.set(1);
     filter.texture.baseTexture.wrapMode = PIXI.WRAP_MODES.REPEAT;
 
@@ -58,15 +57,24 @@ export default defineComponent({
     displacementFilter.scale.x = 30;
     displacementFilter.scale.y = 50;
 
-    pixi.ticker.add(() => {
-      filter.x += 4;
-      if (filter.x > filter.width) {
-        {
-          filter.x = 0;
-        }
+    onMounted(async () => {
+      const canvas = <HTMLInputElement>document.querySelector("#canvas");
+      if (canvas) {
+        canvas.append(pixi.view);
       }
+      pixi.ticker.add(() => {
+        filter.x += 4;
+        if (filter.x > filter.width) {
+          {
+            filter.x = 0;
+          }
+        }
+      });
     });
-    this.loading = false;
+    data.loading = false;
+    return {
+      ...toRefs(data),
+    };
   },
 });
 </script>
