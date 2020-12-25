@@ -54,13 +54,13 @@ export default defineComponent({
   justify-content: flex-end;
   padding: 6px 8px;
 }
+
 a {
-  padding: 8px;
-  font-size: 12px;
+  padding: 4px;
 }
 
 .ion {
-  font-size: 16px;
+  font-size: 14px;
   color: black;
 }
 
