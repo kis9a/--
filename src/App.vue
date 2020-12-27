@@ -1,13 +1,22 @@
 <template>
-  <CHeader />
-  <router-view />
-  <CFooter />
+  <kinesis-container>
+    <kinesis-element :strength="10">
+      <CHeader />
+    </kinesis-element>
+    <kinesis-element :strength="5">
+      <router-view />
+    </kinesis-element>
+    <kinesis-element :strength="15">
+      <CFooter />
+    </kinesis-element>
+  </kinesis-container>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
 import CFooter from "@/components/CFooter.vue";
 import CHeader from "@/components/CHeader.vue";
+import { KinesisContainer, KinesisElement } from "vue-kinesis";
 (async () => require("normalize.css"))();
 
 export default defineComponent({
@@ -15,6 +24,8 @@ export default defineComponent({
   components: {
     CHeader,
     CFooter,
+    KinesisElement,
+    KinesisContainer,
   },
 });
 </script>
