@@ -11,6 +11,14 @@
           <TwitterIcon />
         </a>
         <a
+          href="https://zenn.dev/kis9a"
+          target="_blank"
+          aria-label="document"
+          rel="noopener"
+        >
+          <DocumentIcon />
+        </a>
+        <a
           href="https://github.com/kis9a"
           target="_blank"
           aria-label="github"
@@ -27,13 +35,14 @@
 import { defineComponent } from "vue";
 import GithubIcon from "vue-ionicons/dist/logo-github.vue";
 import TwitterIcon from "vue-ionicons/dist/logo-twitter.vue";
-import MailIcon from "vue-ionicons/dist/md-mail.vue";
+import DocumentIcon from "vue-ionicons/dist/md-document.vue";
 
 export default defineComponent({
   name: "CFooter",
   components: {
     GithubIcon,
     TwitterIcon,
+    DocumentIcon,
   },
   data() {
     return {
@@ -45,14 +54,14 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .links {
-  display: flex;
+  display: grid;
   flex-wrap: wrap;
   justify-content: flex-end;
   padding: 6px 8px;
 }
 
 a {
-  padding: 6px;
+  padding: 4px 6px;
 }
 
 .ion {
