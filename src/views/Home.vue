@@ -6,14 +6,7 @@
 </template>
 
 <script lang="ts">
-import {
-  defineComponent,
-  onMounted,
-  reactive,
-  toRefs,
-  computed,
-  ref,
-} from "vue";
+import { defineComponent, onMounted, reactive, toRefs } from "vue";
 import kis9aImg from "@/assets/kis9ab.png";
 import filterImg from "@/assets/filter.jpg";
 import {

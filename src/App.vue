@@ -1,19 +1,26 @@
 <template>
-  <kinesis-container>
-    <kinesis-element :strength="10">
-      <CHeader />
-    </kinesis-element>
-    <kinesis-element :strength="5">
-      <router-view />
-    </kinesis-element>
-    <kinesis-element :strength="15">
-      <CFooter />
-    </kinesis-element>
-  </kinesis-container>
+  <template v-if="isMobile">
+    <CHeader />
+    <router-view />
+    <CFooter />
+  </template>
+  <template v-else>
+    <kinesis-container>
+      <kinesis-element :strength="10">
+        <CHeader />
+      </kinesis-element>
+      <kinesis-element :strength="5">
+        <router-view />
+      </kinesis-element>
+      <kinesis-element :strength="15">
+        <CFooter />
+      </kinesis-element>
+    </kinesis-container>
+  </template>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, reactive, toRefs } from "vue";
 import CFooter from "@/components/CFooter.vue";
 import CHeader from "@/components/CHeader.vue";
 import { KinesisContainer, KinesisElement } from "vue-kinesis";
@@ -26,6 +33,21 @@ export default defineComponent({
     CFooter,
     KinesisElement,
     KinesisContainer,
+  },
+  setup() {
+    const data = reactive({
+      isMobile: false,
+    });
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      data.isMobile = true;
+    }
+    return {
+      ...toRefs(data),
+    };
   },
 });
 </script>
