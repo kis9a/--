@@ -11,15 +11,16 @@ module.exports = {
     },
   },
   chainWebpack(config) {
-    config.plugin("ImageminWebp").use(ImageminWebp, [
-      {
-        test: /\.(jpg|png)$/i,
-        option: {
-          quality: 85,
+    if (process.env.NODE_ENV === "production") {
+      config.plugin("ImageminWebp").use(ImageminWebp, [
+        {
+          test: /\.(jpg|png)$/i,
+          option: {
+            quality: 85,
+          },
         },
-      },
-    ]);
-
+      ]);
+    }
     config.plugin("ImageminPlugin").use(ImageminPlugin, [
       {
         test: /\.(jpg|png)$/i,

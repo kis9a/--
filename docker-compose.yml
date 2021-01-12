@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  navigation:
+    container_name: navigation
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    ports:
+      - "8080:8080"

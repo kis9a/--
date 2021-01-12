@@ -4,8 +4,9 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "serve": "NODE_ENV=development vue-cli-service serve",
+    "start": "NODE_ENV=production vue-cli-service serve",
+    "build": "NODE_ENV=production vue-cli-service build",
     "deploy": "firebase deploy",
     "format": "prettier --write .",
     "lint": "yarn eslint --ext .ts,.vue ."
@@ -25,7 +26,7 @@
     "normalize.css": "^8.0.1",
     "pixi.js": "^5.3.5",
     "register-service-worker": "^1.7.1",
-    "vue": "^3.0.0",
+    "vue": "^3.0.3",
     "vue-ionicons": "^3.0.5",
     "vue-kinesis": "^2.0.2",
     "vue-router": "^4.0.0-0",
