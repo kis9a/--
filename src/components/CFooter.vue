@@ -54,18 +54,18 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .links {
-  display: grid;
+  display: flex;
   flex-wrap: wrap;
   justify-content: flex-end;
   padding: 6px 8px;
 }
 
 a {
-  padding: 4px 6px;
+  padding: 4px 5px;
 }
 
 .ion {
-  font-size: 16px;
+  font-size: 13px;
   color: black;
 }
 

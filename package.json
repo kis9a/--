@@ -1,5 +1,7 @@
 {
   "name": "kis9a-navigation",
+  "author": "kis9a <kis9ax@gmail.com>",
+  "license": "MIT",
   "description": "kis9a navigation site for introduction personal activitie links",
   "version": "0.1.0",
   "private": true,
@@ -18,39 +20,30 @@
   },
   "lint-staged": {
     "*.@(ts|vue)": [
-      "yarn format"
+      "yarn format",
+      "yarn lint"
     ]
   },
   "dependencies": {
-    "@pixi/filter-displacement": "^5.3.5",
     "normalize.css": "^8.0.1",
     "pixi.js": "^5.3.5",
     "register-service-worker": "^1.7.1",
     "vue": "^3.0.3",
     "vue-ionicons": "^3.0.5",
     "vue-kinesis": "^2.0.2",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.0-0"
+    "vue-router": "^4.0.0-0"
   },
   "devDependencies": {
-    "@types/jquery": "^3.5.5",
     "@typescript-eslint/eslint-plugin": "^4.9.1",
     "@typescript-eslint/parser": "^4.9.1",
     "@vue/cli-plugin-pwa": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "@vue/compiler-sfc": "^3.0.4",
-    "@vue/composition-api": "^1.0.0-beta.22",
-    "@vue/eslint-config-prettier": "^6.0.0",
-    "@vue/eslint-config-typescript": "^7.0.0",
-    "@vue/test-utils": "^2.0.0-beta.12",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^7.0.0",
     "eslint-plugin-prettier": "^3.2.0",
     "eslint-plugin-vue": "^7.2.0",
-    "eslint-webpack-plugin": "^2.4.1",
     "firebase-tools": "^9.0.1",
     "husky": "^4.3.0",
     "imagemin-mozjpeg": "^9.0.0",
@@ -61,9 +54,6 @@
     "sass": "^1.30.0",
     "sass-loader": "^10.1.0",
     "typescript": "~3.9.3",
-    "vue-cli-plugin-webpack-bundle-analyzer": "~2.0.0",
-    "webpack-bundle-analyzer": "^4.3.0",
-    "webpack-cli": "^4.2.0",
-    "workbox-webpack-plugin": "^6.0.2"
+    "webpack-bundle-analyzer": "^4.3.0"
   }
 }

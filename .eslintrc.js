@@ -24,10 +24,7 @@ module.exports = {
   ],
 
   rules: {
-    // Vue
     "vue/require-default-prop": "off",
-
-    // Eslint
     "eol-last": ["error", "always"],
     "no-console": "warn",
   },

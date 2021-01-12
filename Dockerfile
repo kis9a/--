@@ -3,7 +3,6 @@ WORKDIR /app
 COPY package*.json ./
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_NOWARNINGS yes
-RUN yarn global add @vue/cli
 RUN yarn
 ENV NODE_ENV=development
 CMD ["yarn", "run", "serve"]
