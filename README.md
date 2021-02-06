@@ -14,6 +14,8 @@ My first designed frontend project.
 - Deploy to firebase hosting with GitHub actions
 - Compression images in the production build
 - Webpack bundle analyzer support
+- 404 not found pages redirect
+- OGP / Twitter card
 - Eslinting on commit
 - Prettier on commit
 - Other Development packages see [navigation/package.json at master · kis9a/navigation · GitHub](https://github.com/kis9a/navigation/blob/master/package.json)
