@@ -9,6 +9,11 @@ module.exports = {
     workboxOptions: {
       skipWaiting: true,
     },
+    pwa: {
+      iconPaths: {
+        favicon32: "favicon.ico",
+      },
+    },
   },
   chainWebpack(config) {
     if (process.env.NODE_ENV === "production") {
